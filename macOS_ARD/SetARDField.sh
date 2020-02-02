@@ -31,7 +31,7 @@ Binary="/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Reso
 ARDPlistFlag=$(defaults read /Library/Preferences/com.apple.RemoteDesktop.plist "$Flag")
 ARDPlistFlag2=$(defaults read /Library/Preferences/com.apple.RemoteDesktop.plist "$Flag2")
 ARDPlistFlag3=$(defaults read /Library/Preferences/com.apple.RemoteDesktop.plist "$Flag3")
-# ARDPlistFlag4=$(defaults read /Library/Preferences/com.apple.RemoteDesktop.plist "$Flag4")
+ARDPlistFlag4=$(defaults read /Library/Preferences/com.apple.RemoteDesktop.plist "$Flag4")
 #
 # JSS Address
 SetARDFlag=$(/usr/local/jamf/bin/jamf checkJSSConnection | sed -e 's/:*//' | awk -F "/" '{print $3}')
@@ -107,4 +107,4 @@ function SetARDComputerInfoField4
 SetARDComputerInfoField
 SetARDComputerInfoField2
 SetARDComputerInfoField3
-SetARDComputerInfoField3
+SetARDComputerInfoField4
