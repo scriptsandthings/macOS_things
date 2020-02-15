@@ -2,8 +2,8 @@
 # Greg Knackstedt
 # https://github.com/ShitttyScripts/Shittty_macOS
 # gknackstedt(AT)gmail.com
-# 2.2.2020
-# v1.0
+# 2.14.2020
+# v1.1
 #
 # Functions to write a local log file
 # Tested on macOS 10.12-10.15
@@ -71,7 +71,7 @@ function LogJamfParams
 	}
 function JSSScriptLoggingEnabled
 	{ # Re-direct logging to the JSS
-		JssLoggingEnabled "${1}"
+		LocalScriptLoggingEnabled "${1}"
 		exec 1>&3 2>&4
 		echo >&1 ${1}
 	}
