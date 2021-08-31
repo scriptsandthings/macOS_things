@@ -7,7 +7,7 @@
     	<string>https://ABC.123.com:443/broker/xml</string>
     </array>
     <key>defaultBroker</key>
-    <string>https://ABC.123.com:443/broker/xml</string>
+        <string>https://ABC.123.com:443/broker/xml</string>
     <key>promptedUSBPrintingServicesInstall</key>
     <true/>
     <key>trustedServers</key>
