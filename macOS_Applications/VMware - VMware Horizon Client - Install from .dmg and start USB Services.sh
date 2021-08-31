@@ -27,6 +27,9 @@
 # Find currently logged in user
 CurrentUser=$(who | awk '/console/{print $1}')
 #
+# .dmg name that will be placed in /Users/Shared via pre-stage package
+InstallDMGName="$4"
+#
 ######################################################################################## 
 ############################# Functions ################################################
 ######################################################################################## 
@@ -118,13 +121,13 @@ function DeleteHorizonClient
 # Install Horizon Client.app from .dmg in /Users/Shared/ and filename defined with $4
 function InstallVMwareHorizonClient
 	{
-		hdiutil attach /Users/Shared/"$4" -nobrowse
+		hdiutil attach /Users/Shared/"$InstallDMGName" -nobrowse
 		sleep 10
 		cp -Rf /Volumes/VMware\ Horizon\ Client/VMware\ Horizon\ Client.app /Applications/
 		sleep 10
 		hdiutil detach /Volumes/VMware\ Horizon\ Client
 		sleep 5
-		rm -Rf /Users/Shared/"$4"
+		rm -Rf /Users/Shared/"$InstallDMGName"
 	}
 ######################################################################################## 
 ############################# Script ################################################### 
