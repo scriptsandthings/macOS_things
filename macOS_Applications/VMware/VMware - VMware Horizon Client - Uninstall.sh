@@ -5,6 +5,7 @@
 # Version 1.0
 # Greg Knackstedt
 # 8.31.2021
+# https://github.com/gknackstedt/macos_things
 # shitttyscripts@gmail.com
 ######################################################################################## 
 ############################# About This Script ########################################
