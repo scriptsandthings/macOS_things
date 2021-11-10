@@ -1,6 +1,6 @@
 #!/bin/bash
 # Greg Knackstedt
-# https://github.com/ShitttyScripts/Shittty_macOS
+# https://github.com/gknackstedt/macOS_things
 # gknackstedt(AT)gmail.com
 # 2.14.2020
 # v1.1
