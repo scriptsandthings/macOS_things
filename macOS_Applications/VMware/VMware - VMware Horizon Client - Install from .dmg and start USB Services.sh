@@ -146,7 +146,6 @@ DeleteLibraryAppSupport
 DeleteUserLibraryAppSupport
 InstallVMwareHorizonClient
 CallInitUsbServicesTool
-StartVMwareHorizonServices
 echo "##############################################"
 echo "######### VMware Horizon Client ##############"
 echo "######### Installation Complete! #############"
