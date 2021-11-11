@@ -26,7 +26,7 @@
 ######################################################################################## 
 #
 # Find currently logged in user
-CurrentUser=$(who | awk '/console/{print $1}')
+CurrentUser=$(/usr/sbin/scutil <<< "show State:/Users/ConsoleUser" | /usr/bin/awk -F': ' '/[[:space:]]+Name[[:space:]]:/ { if ( $2 != "loginwindow" ) { print $2 }}')
 #
 # .dmg name that will be placed in /Users/Shared via pre-stage package
 InstallDMGName="$4"
