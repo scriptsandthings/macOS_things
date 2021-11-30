@@ -29,6 +29,10 @@ en1=`ipconfig getifaddr en1 2>&1`
 
 en2=`ipconfig getifaddr en2 2>&1`
 
+en3=`ipconfig getifaddr en3 2>&1`
+
+en4=`ipconfig getifaddr en4 2>&1`
+
 VPN=$(/sbin/ifconfig "utun0" 2>/dev/null | \
 /usr/bin/sed -n -e 's|^[[:space:]]*inet \([0-9.]*\).*|\1|p' 2>&1)
 
@@ -46,31 +50,42 @@ GPD1=$(/sbin/ifconfig "gpd1" 2>/dev/null | \
 
 if [ "$en0" = "get if addr en0 failed, (os/kern) failure" ]; then
 
-en0="unavailable"
+en0="en0 unavailable"
 
 fi
 
 if [ "$en1" = "get if addr en1 failed, (os/kern) failure" ]; then
 
-en1="unavailable"
+en1="en1 unavailable"
 
 fi
 
-if [ "$en2" = "get if addr en1 failed, (os/kern) failure" ]; then
+if [ "$en2" = "get if addr en2 failed, (os/kern) failure" ]; then
 
-en2="unavailable"
+en2="en2 unavailable"
 
 fi
 
+if [ "$en3" = "get if addr en3 failed, (os/kern) failure" ]; then
+
+en3="en3 unavailable"
+
+fi
+
+if [ "$en4" = "get if addr en4 failed, (os/kern) failure" ]; then
+
+en4="en4 unavailable"
+
+fi
 
 /usr/bin/osascript << EOF
-set testResults to do shell script "networkQuality"
+set testResults to do shell script "networkQuality -v"
 
 tell application "Finder"
 
 activate
 
-display dialog "$ScriptName" & return & return & "$Timestamp" & return & return & "Serial Number:" & return & "$SN" & return & return & "Current User:" & return & "$CurrentConsoleUser" & return & return & "$OSInfo" & return & return & "GlobalProtect VPN IP Address:" & return & "$GP_IP" & return & "$GPD" & return & "$GPD1" & return & return & "Wifi and Ethernet IP Addresses:" & return & "$en0" & return & "$en1" & return & "$en2" & return & return & "Cisco AnyConnect VPN IP Addresses:" & return &"$VPN" & return & "$VPN1" & return & "$VPN2" & return & return & "Network Speed Test Results:" & return & testResults buttons {"OK"} with icon caution
+display dialog "------- $ScriptName -------" & return & return & "Test ran on: $Timestamp" & return & return & "Serial Number: $SN" & return & "Current User: $CurrentConsoleUser" & return & return & "Network Speed Test Results:" & testResults & return & return & "Wifi and Ethernet IP Addresses:" & return & "$en0" & return & "$en1" & return & "$en2" & return & "$en3" & return & "$en4" & return & return & "GlobalProtect VPN IP Address:" & return & "$GP_IP" & return & "$GPD" & return & "$GPD1" & return & return & "Cisco AnyConnect VPN IP Address:" & return &"$VPN" & return & "$VPN1" & return & "$VPN2" buttons {"OK"} with icon caution
 
 end tell
 
