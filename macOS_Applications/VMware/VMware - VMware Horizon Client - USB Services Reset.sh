@@ -130,7 +130,7 @@ KillVMwareHorizonUSBArb
 DeleteLibraryAppSupport
 DeleteUserLibraryAppSupport
 CallInitUsbServicesTool
-StartVMwareHorizonServices
+# StartVMwareHorizonServices
 echo "##############################################"
 echo "######### VMware Horizon Client ##############"
 echo "######## USB Service Reset Complete! #########"
