@@ -2,9 +2,9 @@
 #
 ######################################################################################## 
 # VMware - VMware Horizon Client - USB Services Reset.sh
-# Version 1.0
+# Version 2.0
 # Greg Knackstedt
-# 8.31.2021
+# 12.7.2021
 # https://github.com/gknackstedt/macos_things
 # shitttyscripts@gmail.com
 ######################################################################################## 
@@ -15,8 +15,6 @@
 # Removes VMware Horizon Application Support files from /Library/Application Support/ and 
 # from /Users/$CurrentUser/Library/Application Support/.
 # Calls the InitUsbServices.tool to rebuild Application Support files and set permissions
-# Runs the services.sh script within the VMware Horizon Client.app bundle to start USB
-# redirection services for the current user.
 #
 #
 ######################################################################################## 
