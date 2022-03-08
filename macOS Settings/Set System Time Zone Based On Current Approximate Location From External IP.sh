@@ -1,25 +1,30 @@
 #!/bin/zsh
-#########################
-#########################
-# Script to set the system's time zone setting based on it's current approximate location, as determined by the system's current external IP address
+##############################################
+##############################################
 #
-# Set System Time Zone Based On Current Approximate Location From External IP.sh
+# Script to find the systems current time zone based on their approximate physical location pulled from the system's current external IP address.
+# Once the time zone is identified, the system is updated to be set to the result.
+# After setting the time zone, the script verifies that "Set Date and Time Automatically" is enabled to avoid any issues
+#
 # v1.0
 # 3.7.2022
-#
+# 
 # Greg Knackstedt
 # shitttyscripts@gmail.com
 # https://github.com/gknackstedt/
-#########################
-#########################
 #
-# Find the system's current external IP address
+#############################################
+#############################################
+#
+# Find the system's current external IP Address
 myIP=$(curl -L -s --max-time 10 http://checkip.dyndns.org | egrep -o -m 1 '([[:digit:]]{1,3}.){3}[[:digit:]]{1,3}')
 #
-# Use the external IP address and bump it against ip-api.com to identify the time zone the system is most likely in
+# Bump the IP address against ip-api.com to pull the current time zone for it's approximate location
 timeZone=$(curl -L -s --max-time 10 "http://ip-api.com/line/$myIP?fields=timezone")
 #
-# Set the time zone using the time zone previously defined using the IP address
+# Set the time zone based on the result
 sudo systemsetup -settimezone "$timeZone"
 #
+# Ensure that "Set Date and Time Automatically" is checked
+sudo systemsetup -setusingnetworktime on
 exit 0
