@@ -1,7 +1,5 @@
 #!/bin/bash
 # Greg Knackstedt
-# https://github.com/gknackstedt/macOS_things
-# gknackstedt(AT)gmail.com
 # 2.14.2020
 # v1.1
 #
@@ -30,7 +28,7 @@ LogDir="/Library/$CompanyName/logs"
 # Log file name
 LogFile="$LogDir"/"$LogFileName"
 # Identify currently logged in user
-CurrentUser=$(stat -f "%Su" /dev/console)
+CurrentUser=$(/usr/sbin/scutil <<< "show State:/Users/ConsoleUser" | /usr/bin/awk -F': ' '/[[:space:]]+Name[[:space:]]:/ { if ( $2 != "loginwindow" ) { print $2 }}')
 #
 # Jamf binary version
 JamfVersion=$(/usr/local/jamf/bin/jamf version)
