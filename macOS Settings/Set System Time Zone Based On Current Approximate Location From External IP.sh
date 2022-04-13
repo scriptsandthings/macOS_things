@@ -11,7 +11,7 @@
 # 
 # Greg Knackstedt
 # shitttyscripts@gmail.com
-# https://github.com/gknackstedt/
+# https://github.com/scriptsandthings/
 #
 #############################################
 #############################################
