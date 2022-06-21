@@ -1,3 +1,1 @@
-# macOS_Things
-When you can't find what you're looking for.... just do it yourself.
-
+A collection of scripts and code snips for supporting macOS
