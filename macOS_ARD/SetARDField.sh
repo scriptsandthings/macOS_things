@@ -14,7 +14,7 @@
 # 2 - Jamf binary version
 # 3 - Current SSID
 # 4 - Top console user
-# 
+#
 #
 ################### Script Parameters ###################
 #
@@ -44,13 +44,12 @@ SetARDFlag3=$(/System/Library/PrivateFrameworks/Apple80211.framework/Resources/a
 #
 # Top console user for system
 SetARDFlag4=$(ac -p | sort -nk 2 | grep -v reboot | grep -v shutdown | awk '/total/{print x};{x=$1}')
-)
 #
 ################### Script Functions ###################
 #
 function SetARDComputerInfoField
 	{
-		if [ -z $ARDPlistFlag ]; then
+		if [ -z "$ARDPlistFlag" ]; then
 		  echo "ARD flag $ARDPlistFlag is blank. Setting flag to: $SetARDFlag"
 		  $Binary -configure -computerinfo -set1 -1 "$SetARDFlag"
 		else
